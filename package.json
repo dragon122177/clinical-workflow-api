@@ -1,0 +1,16 @@
+{
+  "name": "careflow-clinical-workflow-platform",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "dev": "concurrently -n API,WEB -c cyan,magenta \"npm run dev -w @careflow/api\" \"npm run dev -w @careflow/web\"",
+    "build": "npm run build -w @careflow/api && npm run build -w @careflow/web",
+    "test": "npm run test -w @careflow/api && npm run test -w @careflow/web",
+    "typecheck": "npm run typecheck -w @careflow/api && npm run typecheck -w @careflow/web",
+    "start": "npm run start -w @careflow/api"
+  },
+  "devDependencies": {"concurrently": "^9.2.0"},
+  "engines": {"node": ">=20"}
+}
